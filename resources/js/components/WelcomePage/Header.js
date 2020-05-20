@@ -4,13 +4,8 @@ import ReactDOM from "react-dom";
 export default class Header extends Component {
     render() {
         return (
-            <div
-                style={{
-                    textAlign: "center",
-                    marginTop: "20%"
-                }}
-            >
-                <h2 style={{ color: "white", marginBottom: "3%" }}>
+            <div className="wrapper">
+                <h2 className="heading">
                     WELCOME TO JOB PORTAL
                 </h2>
                 <button

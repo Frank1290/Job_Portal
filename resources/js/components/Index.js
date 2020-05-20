@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Header from "./Header";
+import Header from "./WelcomePage/Header";
 
 export default class Index extends Component {
     render() {

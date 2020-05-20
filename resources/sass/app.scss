@@ -6,3 +6,56 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.masthead {
+    height: 100vh;
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("/images/bg-masthead.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+}
+.text-white {
+    color: #e6ebf1 !important;
+}
+.button-space{
+    margin: 10px;
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;  
+}
+.btn-primary{
+    background-color: #f4623a;
+}
+
+
+.wrapper {
+    text-align: center;
+    margin-top: 20%;
+
+    .heading {
+        color: white;
+        margin-bottom: 3%;
+    }
+}
+@include mobile{
+    .masthead {
+        height: 100vh;
+        min-height: 20rem;
+        padding-top: 4.5rem;
+        padding-bottom: 0;
+      }
+      .button-space{
+        padding: 1.25rem 2.25rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 10rem;
+      }
+}

@@ -22,30 +22,31 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-    .heading {
-        color: white;
-        margin-bottom: 2rem;
-        font-size: 2rem;
-    }
-    .welcome-button {
-        padding: 1.25rem 2.25rem;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        border: none;
-        border-radius: 10rem;
-        margin: 10px;
-        color: $black;
-        background-color: e6ebf1;
-    }
-    .text-white {
-        color: #e6ebf1;
-    }
-
-    .btn-primary {
-        background-color: $orange;
-    }
 }
+.heading {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+.welcome-button {
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+    margin: 10px;
+    color: $black;
+    background-color: e6ebf1;
+}
+.text-white {
+    color: #e6ebf1;
+}
+
+.btn-primary {
+    background-color: $orange;
+}
+
 @include mobile {
     .welcome-page-wrapper {
         .heading {

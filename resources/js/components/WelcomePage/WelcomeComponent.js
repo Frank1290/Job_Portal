@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 const WelcomeComponent = () => (
-    <div className="welcome-page-wrapper">
+    <div>
         <h2 className="heading">WELCOME TO JOB PORTAL</h2>
         <button className="welcome-button text-white btn-primary">
             ADD Job

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { Route } from "react-router";
 import WelcomeComponent from "./WelcomePage/WelcomeComponent";
+import PostJobComponent from "./Post_JobPage/PostJobComponent";
 import Base from "./Base";
 
 export default class Index extends Component {
@@ -11,11 +12,11 @@ export default class Index extends Component {
             <Router>
                 <Switch>
                     <Base>
-                        <Route path="/">
+                        <Route path="/" exact={true}>
                             <WelcomeComponent />
                         </Route>
-                        <Route path="/post">
-                            <WelcomeComponent />
+                        <Route path="/postJob" exact={true}>
+                            <PostJobComponent />
                         </Route>
                     </Base>
                 </Switch>

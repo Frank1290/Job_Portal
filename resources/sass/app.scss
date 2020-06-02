@@ -8,10 +8,6 @@
 @import "~bootstrap/scss/bootstrap";
 
 .welcome-page-wrapper {
-    text-align: center;
-    height: 100vh;
-    padding-top: 10rem;
-    padding-bottom: calc(10rem - 4.5rem);
     background: linear-gradient(
             to bottom,
             rgba(92, 77, 66, 0.8) 0%,
@@ -19,15 +15,23 @@
         ),
         url("/images/bg-masthead.jpg");
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: scroll;
     background-size: cover;
 }
 .heading {
+    padding-top: 10rem;
+    padding-bottom: calc(5rem, - 4.5rem);
+    text-align: center;
     color: white;
     margin-bottom: 2rem;
     font-size: 2rem;
 }
+.button-pos {
+    position: relative;
+    margin-left: 40%;
+}
+
 .welcome-button {
     padding: 1.25rem 2.25rem;
     font-size: 0.85rem;
@@ -47,13 +51,49 @@
     background-color: $orange;
 }
 
+/*Css of Job Post Page*/
+.job-post-wrapper {
+    padding: 4rem 15rem;
+}
+.section {
+    background-color: gainsboro;
+    position: relative;
+    display: inline-block;
+    border-radius: 3px;
+}
+.postdetails {
+    float: left;
+    width: 100%;
+    height: 20%;
+}
+.postdetails h3 {
+    margin-top: 17px;
+    margin-left: 21px;
+    font-weight: bold;
+}
+.job-inputs {
+    float: left;
+    width: 100%;
+    height: 80%;
+    padding: 1rem;
+}
+.space {
+    margin-bottom: 3rem;
+}
+.radio-label {
+    font-size: 16px ubuntu, sans-serif;
+    margin: 0px 16px 20px;
+    padding: 0px 0px 20px;
+}
+
 @include mobile {
     .welcome-page-wrapper {
-        .heading {
-            font-size: 4rem;
-        }
-        .welcome-button {
-            font-size: 2rem;
-        }
+        height: 100vh;
+    }
+    .heading {
+        font-size: 4rem;
+    }
+    .welcome-button {
+        font-size: 2rem;
     }
 }

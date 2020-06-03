@@ -10,7 +10,6 @@ import React from "react";
 const Base = ({ children }) => {
     return (
         <div>
-            <h1>HEADING</h1>
             <div className="welcome-page-wrapper">{children}</div>
         </div>
     );

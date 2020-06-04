@@ -89,6 +89,13 @@ const jobPostObj = {
         isRequired: true,
         value: "",
         placeholder: "abc@gmail.com"
+    },
+    apply_link: {
+        type: "text",
+        label: "Job_Link",
+        isRequired: true,
+        value: "",
+        placeholder: "company link"
     }
 };
 

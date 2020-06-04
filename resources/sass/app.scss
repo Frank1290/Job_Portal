@@ -59,7 +59,6 @@
 .section {
     background-color: gainsboro;
     position: relative;
-    display: inline-block;
     border-radius: 3px;
 }
 .postdetails {
@@ -85,6 +84,10 @@
     font-size: 16px ubuntu, sans-serif;
     margin: 0px 16px 20px;
     padding: 0px 0px 20px;
+}
+.post-btn {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 @include mobile {

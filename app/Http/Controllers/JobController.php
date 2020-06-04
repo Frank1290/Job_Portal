@@ -30,7 +30,7 @@ class JobController extends Controller
         $job->apply_link=$req->apply_link;
         $job->email=$req->email;
         $job->save();
-        return response($job, 200);
+        return response('Successfully Added', 200);
         
     }
 }

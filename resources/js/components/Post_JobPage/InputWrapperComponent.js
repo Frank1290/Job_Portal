@@ -25,6 +25,7 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                     <input
                         type="number"
                         id={id}
+                        name={id}
                         className="form-control"
                         min={inputObj.min}
                         required={isRequired}
@@ -35,9 +36,11 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                 return (
                     <textarea
                         id={id}
+                        name={id}
                         required={isRequired}
                         className="form-control"
                         placeholder={placeholder}
+                        onChange={onChange}
                         rows="8"
                     ></textarea>
                 );
@@ -76,17 +79,21 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                     <>
                         {inputObj.default.map(value => {
                             return (
-                                <>
+                                <div key={value}>
                                     <input
                                         type={type}
                                         name={id}
                                         value={value}
                                         id={id}
+                                        onChange={onChange}
                                     />{" "}
-                                    <label for={value} className="radio-label">
+                                    <label
+                                        htmlFor={value}
+                                        className="radio-label"
+                                    >
                                         {value}
                                     </label>
-                                </>
+                                </div>
                             );
                         })}
                     </>
@@ -98,7 +105,7 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
         }
     };
     return (
-        <div className="row">
+        <div className="row" key={id}>
             <div className="col-sm-2">
                 <label htmlFor={id}>{inputObj.label}</label>
             </div>

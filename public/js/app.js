@@ -69964,6 +69964,7 @@ var InputWrapperComponent = function InputWrapperComponent(_ref) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "number",
           id: id,
+          name: id,
           className: "form-control",
           min: inputObj.min,
           required: isRequired,
@@ -69973,9 +69974,11 @@ var InputWrapperComponent = function InputWrapperComponent(_ref) {
       case "textarea":
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           id: id,
+          name: id,
           required: isRequired,
           className: "form-control",
           placeholder: placeholder,
+          onChange: onChange,
           rows: "8"
         });
 
@@ -70005,13 +70008,16 @@ var InputWrapperComponent = function InputWrapperComponent(_ref) {
 
       case "radio":
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, inputObj["default"].map(function (value) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: value
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: type,
             name: id,
             value: value,
-            id: id
+            id: id,
+            onChange: onChange
           }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            "for": value,
+            htmlFor: value,
             className: "radio-label"
           }, value));
         }));
@@ -70027,7 +70033,8 @@ var InputWrapperComponent = function InputWrapperComponent(_ref) {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
+    className: "row",
+    key: id
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -70062,8 +70069,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PostJobComponent; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_jobPostData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/jobPostData */ "./resources/js/utils/jobPostData.js");
-/* harmony import */ var _InputWrapperComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InputWrapperComponent */ "./resources/js/components/Post_JobPage/InputWrapperComponent.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_jobPostData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/jobPostData */ "./resources/js/utils/jobPostData.js");
+/* harmony import */ var _InputWrapperComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./InputWrapperComponent */ "./resources/js/components/Post_JobPage/InputWrapperComponent.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -70096,6 +70105,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var PostJobComponent = /*#__PURE__*/function (_Component) {
   _inherits(PostJobComponent, _Component);
 
@@ -70108,9 +70118,10 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      jobPost: _utils_jobPostData__WEBPACK_IMPORTED_MODULE_1__["default"]
+      jobPost: _utils_jobPostData__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
     _this.handleOnChange = _this.handleOnChange.bind(_assertThisInitialized(_this));
+    _this.postData = _this.postData.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -70127,6 +70138,35 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "postData",
+    value: function postData() {
+      var jobPost = this.state.jobPost;
+      var keyArr = Object.keys(jobPost);
+      var newArrOfObj = keyArr.map(function (key) {
+        var newObj = _defineProperty({}, key, jobPost[key].value);
+
+        return newObj;
+      });
+      var requestPayload = newArrOfObj.reduce(function (acc, cur) {
+        var reducedObj = _objectSpread(_objectSpread({}, acc), cur);
+
+        return reducedObj;
+      }, {});
+      var isValidForm = Object.values(requestPayload).filter(function (val) {
+        return val;
+      }).length === 14;
+
+      if (isValidForm) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/postJob", requestPayload).then(function (response) {
+          console.log(response);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        alert("Please Enter  all Fields !!");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -70141,12 +70181,17 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Post Your Job")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "job-inputs"
       }, Object.keys(jobPost).map(function (key) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputWrapperComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputWrapperComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
           id: key,
           inputObj: jobPost[key],
           onChange: _this2.handleOnChange
         });
-      }))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "post-btn"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary",
+        onClick: this.postData
+      }, "Post Job"))));
     }
   }]);
 
@@ -70290,6 +70335,13 @@ var jobPostObj = {
     isRequired: true,
     value: "",
     placeholder: "abc@gmail.com"
+  },
+  apply_link: {
+    type: "text",
+    label: "Job_Link",
+    isRequired: true,
+    value: "",
+    placeholder: "company link"
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (jobPostObj);

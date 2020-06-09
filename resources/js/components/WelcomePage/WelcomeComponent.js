@@ -17,8 +17,8 @@ const WelcomeComponent = () => {
                         name={button.post}
                         classNames={button.style}
                     />
-                    <ButtonComponent name={button.search} />
                 </Link>
+                <ButtonComponent name={button.search} />
             </div>
         </div>
     );

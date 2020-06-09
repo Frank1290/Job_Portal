@@ -1,18 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const WelcomeComponent = () => (
-    <div>
-        <h2 className="heading">WELCOME TO JOB PORTAL</h2>
-        <div className="button-pos">
-            <Link to="/postJob">
-                <button className="welcome-button text-white btn-primary">
-                    ADD Job
-                </button>
-            </Link>
+import ButtonComponent from "../Button/ButtonComponent";
+const buttonObj = {
+    post: "Post Job",
+    search: "Search Job",
+    style: "text-white btn-primary"
+};
 
-            <button className="welcome-button">Search Job</button>
+const WelcomeComponent = () => {
+    return (
+        <div>
+            <h2 className="heading">WELCOME TO JOB PORTAL</h2>
+            <div className="button-pos">
+                <Link to="/postJob">
+                    <ButtonComponent
+                        name={buttonObj.post}
+                        classNames={buttonObj.style}
+                    />
+                </Link>
+                <ButtonComponent name={buttonObj.search} />
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default WelcomeComponent;

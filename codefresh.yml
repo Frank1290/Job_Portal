@@ -10,5 +10,6 @@ steps:
     title: 'Building My Docker Image'
     type: build
     dockerfile: Dockerfile
+    working_directory: './Job_Portal'
     image_name: my-app-image
     tag: from-master-branch

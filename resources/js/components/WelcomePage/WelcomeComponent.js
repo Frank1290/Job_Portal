@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonComponent from "../Button/ButtonComponent";
-const button = {
+const buttonObj = {
     post: "Post Job",
     search: "Search Job",
     style: "text-white btn-primary"
@@ -14,11 +14,11 @@ const WelcomeComponent = () => {
             <div className="button-pos">
                 <Link to="/postJob">
                     <ButtonComponent
-                        name={button.post}
-                        classNames={button.style}
+                        name={buttonObj.post}
+                        classNames={buttonObj.style}
                     />
                 </Link>
-                <ButtonComponent name={button.search} />
+                <ButtonComponent name={buttonObj.search} />
             </div>
         </div>
     );

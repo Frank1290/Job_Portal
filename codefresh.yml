@@ -1,0 +1,14 @@
+version: '1.0'
+steps:
+  main_clone:
+    title: 'Cloning main repository...'
+    type: git-clone
+    repo: Frank1290/Job_Portal
+    revision: master
+    git: github
+  myDockerImage:
+    title: 'Building My Docker Image'
+    type: build
+    dockerfile: Dockerfile
+    image_name: my-app-image
+    tag: from-master-branch

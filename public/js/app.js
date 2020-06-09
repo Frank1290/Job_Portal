@@ -71787,17 +71787,13 @@ var Base = function Base(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var React__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! React */ "./node_modules/React/index.js");
 /* harmony import */ var React__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(React__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-
 
 
 var ButtonComponent = function ButtonComponent(_ref) {
   var name = _ref.name,
-      sty = _ref.sty;
-  console.log(name, sty);
+      classNames = _ref.classNames;
   return /*#__PURE__*/React__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "welcome-button ".concat(sty)
+    className: "welcome-button ".concat(classNames)
   }, name);
 };
 
@@ -72203,7 +72199,7 @@ var WelcomeComponent = function WelcomeComponent() {
     to: "/postJob"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button_ButtonComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: button.post,
-    sty: button.style
+    classNames: button.style
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Button_ButtonComponent__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: button.search
   }))));

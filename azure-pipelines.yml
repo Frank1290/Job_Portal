@@ -24,8 +24,6 @@ steps:
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
-- script: php artisan key:generate
-  displayName: 'key generation'
 - script: npm install
   displayName: 'npm install'
 - script: php artisan serve

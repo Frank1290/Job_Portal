@@ -26,8 +26,4 @@ steps:
   displayName: 'composer install'
 - script: npm install
   displayName: 'npm install'
-- script: php artisan serve
-  displayName: 'start server'
-- script: npm run dev
-  displayName: 'start React app'
   

@@ -70470,7 +70470,7 @@ var jobPostObj = {
   },
   apply_link: {
     type: "text",
-    label: "Job_Link",
+    label: "Job Link",
     isRequired: true,
     value: "",
     error: "",

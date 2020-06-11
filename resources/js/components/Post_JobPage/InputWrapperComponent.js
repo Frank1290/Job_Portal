@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const InputWrapperComponent = ({ id, inputObj, onChange }) => {
+const InputWrapperComponent = ({ id, inputObj, onChange, onBlur }) => {
     const renderSwitch = () => {
         const { type, isRequired, placeholder, value } = inputObj;
         switch (type) {
@@ -13,6 +13,7 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                         id={id}
                         className="form-control"
                         onChange={onChange}
+                        onBlur={onBlur}
                         required={isRequired}
                         placeholder={placeholder}
                         value={value}
@@ -30,6 +31,7 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                         min={inputObj.min}
                         required={isRequired}
                         onChange={onChange}
+                        onBlur={onBlur}
                     />
                 );
             case "textarea":
@@ -41,6 +43,7 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                         className="form-control"
                         placeholder={placeholder}
                         onChange={onChange}
+                        onBlur={onBlur}
                         rows="8"
                     ></textarea>
                 );
@@ -79,13 +82,14 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                     <>
                         {inputObj.default.map(value => {
                             return (
-                                <div key={value}>
+                                <span key={value}>
                                     <input
                                         type={type}
                                         name={id}
                                         value={value}
                                         id={id}
                                         onChange={onChange}
+                                        onBlur={onBlur}
                                     />{" "}
                                     <label
                                         htmlFor={value}
@@ -93,23 +97,32 @@ const InputWrapperComponent = ({ id, inputObj, onChange }) => {
                                     >
                                         {value}
                                     </label>
-                                </div>
+                                </span>
                             );
                         })}
                     </>
                 );
             default:
                 return (
-                    <input type={type} id={id} onChange={onChange} required />
+                    <input
+                        type={type}
+                        id={id}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        required
+                    />
                 );
         }
     };
     return (
-        <div className="row" key={id}>
+        <div className="row space" key={id}>
             <div className="col-sm-2">
                 <label htmlFor={id}>{inputObj.label}</label>
             </div>
-            <div className="col-sm-10 space">{renderSwitch()}</div>
+            <div className="col-sm-10">
+                <div>{renderSwitch()}</div>
+                <div className="text-danger">{inputObj.error}</div>
+            </div>
         </div>
     );
 };
@@ -118,9 +131,13 @@ InputWrapperComponent.prototype = {
     inputObj: PropTypes.shape({
         type: PropTypes.string,
         label: PropTypes.string,
-        isRequired: PropTypes.bool
+        isRequired: PropTypes.bool,
+        placeholder: PropTypes.string,
+        value: PropTypes.string,
+        error: PropTypes.string
     }),
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func
 };
 
 export default InputWrapperComponent;

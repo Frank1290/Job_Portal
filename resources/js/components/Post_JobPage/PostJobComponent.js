@@ -10,7 +10,8 @@ export default class PostJobComponent extends Component {
             jobPost: jobPostObj,
             isFormError: false,
             isBackendError: false,
-            isLoading: false
+            isLoading: false,
+            isSuccess: false
         };
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnBlur = this.handleOnBlur.bind(this);
@@ -40,7 +41,8 @@ export default class PostJobComponent extends Component {
                     error
                 }
             },
-            isFormError: false
+            isFormError: false,
+            isBackendError: false
         });
     }
     handleOnChange(event) {
@@ -74,8 +76,13 @@ export default class PostJobComponent extends Component {
             axios
                 .post("/api/postJob", requestPayload)
                 .then(response => {
-                    console.log(response);
-                    this.setState({ isLoading: false });
+                    this.scrollToTop();
+
+                    this.setState({
+                        isLoading: false,
+                        isSuccess: true,
+                        jobPost: jobPostObj
+                    });
                 })
                 .catch(error => {
                     this.scrollToTop();
@@ -103,7 +110,13 @@ export default class PostJobComponent extends Component {
     }
 
     render() {
-        const { jobPost, isFormError, isBackendError, isLoading } = this.state;
+        const {
+            jobPost,
+            isFormError,
+            isBackendError,
+            isLoading,
+            isSuccess
+        } = this.state;
         return (
             <div className="job-post-wrapper">
                 <div className="section">
@@ -119,6 +132,11 @@ export default class PostJobComponent extends Component {
                         {isBackendError && (
                             <div className="text-danger text-center border border-danger rounded mb-1">
                                 Something went wrong !!
+                            </div>
+                        )}
+                        {isSuccess && (
+                            <div className="text-success text-center border border-success rounded mb-1">
+                                Form Submitted Successfully!!
                             </div>
                         )}
                         {Object.keys(jobPost).map(key => {

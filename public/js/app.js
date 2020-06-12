@@ -70158,7 +70158,8 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
       jobPost: _utils_jobPostData__WEBPACK_IMPORTED_MODULE_2__["default"],
       isFormError: false,
       isBackendError: false,
-      isLoading: false
+      isLoading: false,
+      isSuccess: false
     };
     _this.handleOnChange = _this.handleOnChange.bind(_assertThisInitialized(_this));
     _this.handleOnBlur = _this.handleOnBlur.bind(_assertThisInitialized(_this));
@@ -70194,7 +70195,8 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
         jobPost: _objectSpread(_objectSpread({}, this.state.jobPost), {}, _defineProperty({}, name, _objectSpread(_objectSpread({}, this.state.jobPost[name]), {}, {
           error: error
         }))),
-        isFormError: false
+        isFormError: false,
+        isBackendError: false
       });
     }
   }, {
@@ -70237,10 +70239,12 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
           isLoading: true
         });
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/postJob", requestPayload).then(function (response) {
-          console.log(response);
+          _this2.scrollToTop();
 
           _this2.setState({
-            isLoading: false
+            isLoading: false,
+            isSuccess: true,
+            jobPost: _utils_jobPostData__WEBPACK_IMPORTED_MODULE_2__["default"]
           });
         })["catch"](function (error) {
           _this2.scrollToTop();
@@ -70273,7 +70277,8 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
           jobPost = _this$state.jobPost,
           isFormError = _this$state.isFormError,
           isBackendError = _this$state.isBackendError,
-          isLoading = _this$state.isLoading;
+          isLoading = _this$state.isLoading,
+          isSuccess = _this$state.isSuccess;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "job-post-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70286,7 +70291,9 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
         className: "text-danger text-center border border-danger rounded mb-1"
       }, "Please Enter all Required Fields !!"), isBackendError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-danger text-center border border-danger rounded mb-1"
-      }, "Something went wrong !!"), Object.keys(jobPost).map(function (key) {
+      }, "Something went wrong !!"), isSuccess && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-success text-center border border-success rounded mb-1"
+      }, "Form Submitted Successfully!!"), Object.keys(jobPost).map(function (key) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputWrapperComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
           id: key,
           inputObj: jobPost[key],

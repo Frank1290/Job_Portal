@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import SearchBarComponent from "./SearchBarComponent";
 import axios from "axios";
+
 export default class SearchJobComponent extends Component {
     constructor() {
         super();
@@ -19,9 +21,12 @@ export default class SearchJobComponent extends Component {
     render() {
         return (
             <div>
-                {this.state.jobList.map(list => {
-                    return <h2>Title : {list.title}</h2>;
-                })}
+                <SearchBarComponent />
+                <div>
+                    {this.state.jobList.map(list => {
+                        return <h2>Title : {list.title}</h2>;
+                    })}
+                </div>
             </div>
         );
     }

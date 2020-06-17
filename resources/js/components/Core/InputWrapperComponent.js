@@ -1,7 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import DropdownComponent from "./DropdownComponent";
+import SelectOptionComponent from "./SelectOptionComponent";
 
-const InputWrapperComponent = ({ id, inputObj, onChange, onBlur }) => {
+const InputWrapperComponent = ({
+    id,
+    inputObj,
+    onChange,
+    onBlur,
+    authToken
+}) => {
     const renderSwitch = () => {
         const { type, isRequired, placeholder, value } = inputObj;
         switch (type) {
@@ -49,33 +57,17 @@ const InputWrapperComponent = ({ id, inputObj, onChange, onBlur }) => {
                 );
             case "dropdown":
                 return (
-                    <div className="input-append btn-group">
-                        <input
-                            className="span2"
-                            id="appendedInputButton"
-                            size="16"
-                            type="text"
-                        />
-                        <a
-                            className="btn btn-primary dropdown-toggle"
-                            data-toggle="dropdown"
-                            href="#"
-                        >
-                            <span className="caret"></span>
-                        </a>
-                        <ul className="dropdown-menu">
-                            {inputObj.default.map(jobType => {
-                                return (
-                                    <li>
-                                        <a href="#">
-                                            <i className="icon-pencil"></i>{" "}
-                                            {jobType}
-                                        </a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
+                    <>
+                        {Object.keys(inputObj.default).map(key => (
+                            <SelectOptionComponent
+                                locationKey={key}
+                                ddObject={inputObj.default[key]}
+                                onChange={onChange}
+                                authToken={authToken}
+                                defaultObj={inputObj.default}
+                            />
+                        ))}
+                    </>
                 );
             case "radio":
                 return (
@@ -137,7 +129,8 @@ InputWrapperComponent.prototype = {
         error: PropTypes.string
     }),
     onChange: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
+    authToken: PropTypes.string
 };
 
 export default InputWrapperComponent;

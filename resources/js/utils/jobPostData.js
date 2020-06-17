@@ -88,13 +88,42 @@ const jobPostObj = {
         default: ["FullTime", "PartTime", "Freelance", "Contract"]
     },
     location: {
-        type: "text",
+        type: "dropdown",
         label: "Location",
         isRequired: true,
         value: "",
         error: "",
-        placeholder: "ex, Nagpur,Mumbai,Pune"
+        placeholder: "ex, Nagpur,Mumbai,Pune",
+        default: {
+            countries: { label: "Country", value: "", error: "" },
+            states: { label: "State", value: "", error: "" },
+            cities: { label: "City", value: "", error: "" }
+        }
     },
+    // countries: {
+    //     type: "dropdown",
+    //     label: "Country",
+    //     isRequired: true,
+    //     value: "",
+    //     error: "",
+    //     placeholder: "Country"
+    // },
+    // states: {
+    //     type: "dropdown",
+    //     label: "Country",
+    //     isRequired: true,
+    //     value: "",
+    //     error: "",
+    //     placeholder: "Country"
+    // },
+    // cities: {
+    //     type: "dropdown",
+    //     label: "Country",
+    //     isRequired: true,
+    //     value: "",
+    //     error: "",
+    //     placeholder: "Country"
+    // },
     email: {
         type: "email",
         label: "HR Email Id",

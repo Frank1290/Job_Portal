@@ -90,6 +90,30 @@
     margin-bottom: 1rem;
 }
 
+.dropdown-button {
+    color: #000;
+    background-color: #b7babd;
+    border-color: #b7babd;
+}
+.dropdown-button:hover {
+    background-color: #8294a0;
+    border-color: #8294a0;
+}
+.dropdown {
+    display: inline-block;
+    margin: 0 12px;
+}
+.dropdown-menu {
+    overflow-y: scroll;
+    max-height: 15rem;
+}
+.dropdown-button {
+    min-width: 8rem;
+}
+.selectWrapper {
+    display: inline-flex;
+    width: 33%;
+}
 @include mobile {
     .welcome-page-wrapper {
         height: 100vh;

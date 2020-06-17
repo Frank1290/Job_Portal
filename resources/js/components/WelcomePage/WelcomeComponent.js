@@ -18,7 +18,9 @@ const WelcomeComponent = () => {
                         classNames={buttonObj.style}
                     />
                 </Link>
+                <Link to="/searchJob">
                 <ButtonComponent name={buttonObj.search} />
+                </Link>
             </div>
         </div>
     );

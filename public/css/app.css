@@ -2190,11 +2190,6 @@ pre code {
   box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
-.form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -11059,6 +11054,36 @@ a.text-dark:focus {
   font-size: 15px;
   font-weight: 700;
   border-radius: 3px;
+}
+
+.dropdown-button {
+  color: #000;
+  background-color: #b7babd;
+  border-color: #b7babd;
+}
+
+.dropdown-button:hover {
+  background-color: #8294a0;
+  border-color: #8294a0;
+}
+
+.dropdown {
+  display: inline-block;
+  margin: 0 12px;
+}
+
+.dropdown-menu {
+  overflow-y: scroll;
+  max-height: 15rem;
+}
+
+.dropdown-button {
+  min-width: 8rem;
+}
+
+.selectWrapper {
+  display: inline-flex;
+  width: 33%;
 }
 
 @media (max-width: 1023px) {

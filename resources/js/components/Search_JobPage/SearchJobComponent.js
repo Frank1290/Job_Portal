@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import SearchBarComponent from "./SearchBarComponent";
 import JobGridComponent from "./JobGridComponent";
 
 export default class SearchJobComponent extends Component {
@@ -31,6 +32,8 @@ export default class SearchJobComponent extends Component {
         return (
             <div>
                 <div>
+                    <SearchBarComponent />
+
                     <JobGridComponent jobInfo={this.state.obj} />
                 </div>
                 <div>

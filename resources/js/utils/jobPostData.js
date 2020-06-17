@@ -100,30 +100,6 @@ const jobPostObj = {
             cities: { label: "City", value: "", error: "" }
         }
     },
-    // countries: {
-    //     type: "dropdown",
-    //     label: "Country",
-    //     isRequired: true,
-    //     value: "",
-    //     error: "",
-    //     placeholder: "Country"
-    // },
-    // states: {
-    //     type: "dropdown",
-    //     label: "Country",
-    //     isRequired: true,
-    //     value: "",
-    //     error: "",
-    //     placeholder: "Country"
-    // },
-    // cities: {
-    //     type: "dropdown",
-    //     label: "Country",
-    //     isRequired: true,
-    //     value: "",
-    //     error: "",
-    //     placeholder: "Country"
-    // },
     email: {
         type: "email",
         label: "HR Email Id",

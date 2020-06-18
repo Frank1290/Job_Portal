@@ -11105,11 +11105,7 @@ a.text-dark:focus {
   padding-bottom: 3px;
 }
 
-.location {
-  margin: 3px 24px 0px 0px;
-}
-
-.salary {
+.common-margin {
   margin: 3px 24px 0px 0px;
 }
 

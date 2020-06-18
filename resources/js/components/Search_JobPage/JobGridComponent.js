@@ -17,9 +17,11 @@ const JobGridComponent = ({ jobInfo }) => {
                 </div>
 
                 <div className="company-info-details">
-                    <span className="location">{jobInfo.location}</span>
+                    <span className="common-margin">{jobInfo.location}</span>
 
-                    <span className="salary">{jobInfo.salary}/Month</span>
+                    <span className="common-margin">
+                        {jobInfo.salary}/Month
+                    </span>
                     <span className="type">{jobInfo.type}</span>
                 </div>
             </div>

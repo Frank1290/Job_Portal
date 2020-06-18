@@ -70362,9 +70362,9 @@ var JobGridComponent = function JobGridComponent(_ref) {
   }, jobInfo.company), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Posted:", jobInfo.posted)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "company-info-details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "location"
+    className: "common-margin"
   }, jobInfo.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "salary"
+    className: "common-margin"
   }, jobInfo.salary, "/Month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "type"
   }, jobInfo.type))));

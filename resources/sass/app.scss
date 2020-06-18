@@ -128,7 +128,30 @@
     font-weight: 700;
     border-radius: 3px;
 }
-
+.dropdown-button {
+    color: #000;
+    background-color: #b7babd;
+    border-color: #b7babd;
+}
+.dropdown-button:hover {
+    background-color: #8294a0;
+    border-color: #8294a0;
+}
+.dropdown {
+    display: inline-block;
+    margin: 0 12px;
+}
+.dropdown-menu {
+    overflow-y: scroll;
+    max-height: 15rem;
+}
+.dropdown-button {
+    min-width: 8rem;
+}
+.selectWrapper {
+    display: inline-flex;
+    width: 33%;
+}
 // css for job-grid-component//
 .job-lists {
     padding: 16px 25px;

@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonComponent from "../Button/ButtonComponent";
 
 const SearchBarComponent = () => {
     return (
@@ -22,10 +21,6 @@ const SearchBarComponent = () => {
                         />
                     </div>
                     <div className="col-sm-2">
-                        {/* <ButtonComponent
-                            name="Search"
-                            classNames="text-white btn-brown" */}
-
                         <input
                             type="submit"
                             placeholder="Search"

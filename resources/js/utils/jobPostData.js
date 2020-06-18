@@ -88,12 +88,17 @@ const jobPostObj = {
         default: ["FullTime", "PartTime", "Freelance", "Contract"]
     },
     location: {
-        type: "text",
+        type: "dropdown",
         label: "Location",
         isRequired: true,
         value: "",
         error: "",
-        placeholder: "ex, Nagpur,Mumbai,Pune"
+        placeholder: "ex, Nagpur,Mumbai,Pune",
+        default: {
+            countries: { label: "Country", value: "", error: "" },
+            states: { label: "State", value: "", error: "" },
+            cities: { label: "City", value: "", error: "" }
+        }
     },
     email: {
         type: "email",

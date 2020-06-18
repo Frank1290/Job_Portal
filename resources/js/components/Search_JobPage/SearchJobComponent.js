@@ -1,12 +1,22 @@
 import React, { Component } from "react";
-import SearchBarComponent from "./SearchBarComponent";
 import axios from "axios";
+
+import SearchBarComponent from "./SearchBarComponent";
+import JobGridComponent from "./JobGridComponent";
 
 export default class SearchJobComponent extends Component {
     constructor() {
         super();
         this.state = {
-            jobList: []
+            jobList: [],
+            obj: {
+                title: "Senior Marketing Officer,Generator",
+                company: "Shomka Agency",
+                posted: "January 6,2020",
+                location: "India, Mumbai",
+                salary: "$1260",
+                type: "Full-Time"
+            }
         };
     }
     componentDidMount() {
@@ -21,7 +31,11 @@ export default class SearchJobComponent extends Component {
     render() {
         return (
             <div>
-                <SearchBarComponent />
+                <div>
+                    <SearchBarComponent />
+
+                    <JobGridComponent jobInfo={this.state.obj} />
+                </div>
                 <div>
                     {this.state.jobList.map(list => {
                         return <h2>Title : {list.title}</h2>;

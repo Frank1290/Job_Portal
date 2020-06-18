@@ -71447,6 +71447,65 @@ var PostJobComponent = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Search_JobPage/JobGridComponent.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/Search_JobPage/JobGridComponent.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var JobGridComponent = function JobGridComponent(_ref) {
+  var jobInfo = _ref.jobInfo;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "job-lists"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+    className: "logo-section"
+  }, "className", "photo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "/images/cutting-edge1.png"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "job-list-section"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "job-title"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, jobInfo.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "company-info"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "company-name"
+  }, jobInfo.company), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Posted:", jobInfo.posted)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "company-info-details"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "common-margin"
+  }, jobInfo.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "common-margin"
+  }, jobInfo.salary, "/Month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "type"
+  }, jobInfo.type))));
+};
+
+JobGridComponent.prototype = {
+  jobInfo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+    title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    company: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    posted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    location: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    salary: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    type: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+  })
+};
+/* harmony default export */ __webpack_exports__["default"] = (JobGridComponent);
+
+/***/ }),
+
 /***/ "./resources/js/components/Search_JobPage/SearchBarComponent.js":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/Search_JobPage/SearchBarComponent.js ***!
@@ -71504,9 +71563,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SearchJobComponent; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SearchBarComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchBarComponent */ "./resources/js/components/Search_JobPage/SearchBarComponent.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _SearchBarComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchBarComponent */ "./resources/js/components/Search_JobPage/SearchBarComponent.js");
+/* harmony import */ var _JobGridComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./JobGridComponent */ "./resources/js/components/Search_JobPage/JobGridComponent.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71533,6 +71593,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var SearchJobComponent = /*#__PURE__*/function (_Component) {
   _inherits(SearchJobComponent, _Component);
 
@@ -71545,7 +71606,15 @@ var SearchJobComponent = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
     _this.state = {
-      jobList: []
+      jobList: [],
+      obj: {
+        title: "Senior Marketing Officer,Generator",
+        company: "Shomka Agency",
+        posted: "January 6,2020",
+        location: "India, Mumbai",
+        salary: "$1260",
+        type: "Full-Time"
+      }
     };
     return _this;
   }
@@ -71560,7 +71629,7 @@ var SearchJobComponent = /*#__PURE__*/function (_Component) {
     value: function getJobList() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://localhost:8000/api/getJobList").then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://localhost:8000/api/getJobList").then(function (response) {
         _this2.setState({
           jobList: response.data
         });
@@ -71569,7 +71638,9 @@ var SearchJobComponent = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchBarComponent__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.jobList.map(function (list) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchBarComponent__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_JobGridComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        jobInfo: this.state.obj
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.jobList.map(function (list) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Title : ", list.title);
       })));
     }

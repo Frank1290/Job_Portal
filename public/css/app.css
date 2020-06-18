@@ -11086,6 +11086,62 @@ a.text-dark:focus {
   width: 33%;
 }
 
+.job-lists {
+  padding: 16px 25px;
+  position: relative;
+  display: flex;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border-radius: 3px;
+}
+
+.logo-section {
+  width: 20%;
+}
+
+.job-list-section {
+  width: 100%;
+  padding: 0px 0px 0px 30px;
+}
+
+.job-title {
+  color: #fa590f;
+  font-family: "Work Sans", sans-serif;
+  font-size: 20px;
+}
+
+.company-info {
+  color: #9f9f9f;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  padding-bottom: 3px;
+}
+
+.company-name {
+  margin: 0px 9px 0px 0px;
+}
+
+.company-info-details {
+  color: #9f9f9f;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  padding-bottom: 3px;
+}
+
+.common-margin {
+  margin: 3px 24px 0px 0px;
+}
+
+.type {
+  margin: 3px 0px 0px 0px;
+}
+
+.photo {
+  min-width: 80px;
+}
+
 @media (max-width: 1023px) {
   .welcome-page-wrapper {
     height: 100vh;

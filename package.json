@@ -28,5 +28,7 @@
         "sass-loader": "^8.0.0",
         "websocket-extensions": ">=0.1.4"
     },
-    "dependencies": {}
+    "dependencies": {
+        "moment": "^2.27.0"
+    }
 }

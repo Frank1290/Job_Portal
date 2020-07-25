@@ -2,21 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import SearchBarComponent from "./SearchBarComponent";
-import JobGridComponent from "./JobGridComponent";
+
+import JobListComponent from "./JobListComponent";
 
 export default class SearchJobComponent extends Component {
     constructor() {
         super();
         this.state = {
-            jobList: [],
-            obj: {
-                title: "Senior Marketing Officer,Generator",
-                company: "Shomka Agency",
-                posted: "January 6,2020",
-                location: "India, Mumbai",
-                salary: "$1260",
-                type: "Full-Time"
-            }
+            jobList: []
         };
     }
     componentDidMount() {
@@ -26,21 +19,20 @@ export default class SearchJobComponent extends Component {
         axios.get("http://localhost:8000/api/getJobList").then(response => {
             this.setState({ jobList: response.data });
         });
+        // axios
+        //     .get(
+        //         "https://suggest.naukri.com/suggest/autosuggest?query=java&appId=105&vertical=pFrea_18&category=skill&limit=7"
+        //     )
+        //     .then(response => {
+        //         console.log(response);
+        //     });
     }
 
     render() {
         return (
             <div>
-                <div>
-                    <SearchBarComponent />
-
-                    <JobGridComponent jobInfo={this.state.obj} />
-                </div>
-                <div>
-                    {this.state.jobList.map(list => {
-                        return <h2>Title : {list.title}</h2>;
-                    })}
-                </div>
+                <SearchBarComponent />
+                <JobListComponent jobList={this.state.jobList} />
             </div>
         );
     }

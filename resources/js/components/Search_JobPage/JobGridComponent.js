@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 const JobGridComponent = ({ jobInfo }) => {
     return (
@@ -13,14 +14,17 @@ const JobGridComponent = ({ jobInfo }) => {
                 </div>
                 <div className="company-info">
                     <span className="company-name">{jobInfo.company}</span>
-                    <span>Posted:{jobInfo.posted}</span>
+                    <span>
+                        Posted:
+                        {moment(jobInfo.created_at).format("MMMM Do YYYY")}
+                    </span>
                 </div>
 
                 <div className="company-info-details">
                     <span className="common-margin">{jobInfo.location}</span>
 
                     <span className="common-margin">
-                        {jobInfo.salary}/Month
+                        {jobInfo.salary_range}/Month
                     </span>
                     <span className="type">{jobInfo.type}</span>
                 </div>
